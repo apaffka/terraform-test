@@ -1,28 +1,28 @@
-#Cloud variables
-variable "folder_id" {
-  type = string
-}
+### Cloud variables ###
+
+# Define Cloud Id
 variable "cloud_id" {
-  type = string
+  default = "b1grn1g6k3qfh9re8san"
+  type    = string
 }
 
-#Network variables
+# Define Folder Id
+variable "folder_id" {
+  default = "b1go6ongjivllnpt0qi9"
+  type    = string
+}
+
+## Instance variables ###
+## Should be defined for instance creation ###
+
 variable "zone" {
+  type = list(string)
   default = [
     "ru-central1-a",
     "ru-central1-b"
   ]
 }
 
-variable "subnet_cidrs" {
-  type = list(string)
-  default = [
-    "10.0.1.0/24",
-    "10.0.2.0/24"
-  ]
-}
-
-#Instance variables
 variable "instance_image_family" {
   type = list(string)
   default = [
@@ -30,19 +30,7 @@ variable "instance_image_family" {
     "lemp"
   ]
 }
-
 variable "instance_user" {
-  type = string
-}
-
-variable "ssh_key_path" {
-  type = string
-}
-
-#Local variables
-locals {
-  network_name        = "skill-vpc"
-  subnet_name         = "skill-subnet"
-  security_group_name = "skill-security-group"
-  instance_name       = "skill-instance"
+  type    = string
+  default = "pavel"
 }
